@@ -1,0 +1,142 @@
+/* 1. CRITICAL: Lock the root window to prevent whole-page browser scrolling */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* 2. MAIN LAYOUT: Locked to viewport height */
+.layout {
+  display: flex;
+  height: 100vh; 
+  overflow: hidden; 
+}
+
+/* 3. STATIC SIDEBAR: Locked to desktop view, won't shrink */
+.sidebar, app-sidebar {
+  width: 250px;
+  height: 100vh;
+  flex-shrink: 0; 
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border-color);
+}
+
+/* 4. MAIN CONTAINER: Set as a flex column to split header and content */
+.main-content {
+  flex: 1;
+  background: #111111;
+  height: 100vh;
+  display: flex;
+  flex-direction: column; /* Stacks header vertically on top of content */
+  overflow: hidden;       /* Prevents the container itself from scrolling */
+}
+
+/* 5. STATIC HEADER: Stopped from shrinking or moving */
+app-header {
+  flex-shrink: 0; 
+  width: 100%;
+}
+
+/* 6. SCROLLABLE CONTENT REGION: This isolates the scrolling strictly to your routes */
+.content {
+  flex: 1;            /* Takes up all remaining vertical space below header */
+  overflow-y: auto;   /* Enables vertical scrollbar only for layout text/routes */
+  padding: 24px;
+}
+
+/* --- Keep the rest of your stylistic CSS intact --- */
+.logo {
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.logo img {
+  width: 150px;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+
+.sidebar nav a {
+  text-decoration: none;
+  color: var(--text-white);
+  padding: 14px 16px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  transition: .3s;
+}
+
+.sidebar nav a:hover {
+  background: var(--primary-color);
+} 
+
+/* 7. RESPONSIVE BREAKPOINTS (Mobile adjustments) */
+@media screen and (max-width: 992px) {
+  .layout {
+    display: block;
+    height: auto;      
+    overflow: visible;
+  }
+
+  /* Re-allow body scroll on small viewports since sidebar hides away */
+  html, body {
+    overflow: auto;
+  }
+
+  /* Notice we target both class and component tag for Angular consistency */
+  .sidebar, app-sidebar {
+    position: fixed;
+    left: -260px;
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    z-index: 1000;
+    transition: left 0.3s ease;
+    border-right: none;
+  }
+
+  /* Keeps your Angular structural binding working cleanly */
+  .sidebar.open, app-sidebar.open {
+    left: 0;
+  }
+
+  .main-content {
+    width: 100%;
+    height: auto;      
+    overflow: visible; 
+    display: block;    /* Remove flex execution on mobile viewports */
+  }
+
+  .content {
+    padding: 20px;
+    overflow-y: visible; /* Let natural mobile page scrolling take over */
+  }
+
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 900;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 0 16px;
+  }
+
+  .header-left h2 {
+    font-size: 18px;
+  }
+
+  .content {
+    padding: 16px;
+  }
+}

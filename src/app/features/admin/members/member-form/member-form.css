@@ -1,0 +1,220 @@
+/* ===========================
+   Page
+=========================== */
+
+.form-page {
+    padding: 30px;
+    background: #111111;
+    min-height: calc(100vh - 90px);
+}
+
+/* ===========================
+   Card
+=========================== */
+
+.form-card {
+    background: #1b1b1b;
+    border: 1px solid #2d2d2d;
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+
+/* ===========================
+   Header
+=========================== */
+
+.form-header {
+    margin-bottom: 30px;
+}
+
+.form-header h2 {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+/* ===========================
+   Grid
+=========================== */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(250px,1fr));
+    gap: 22px;
+}
+
+/* ===========================
+   Form Group
+=========================== */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    color: #bdbdbd;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* ===========================
+   Inputs
+=========================== */
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+
+    background: #111111;
+
+    color: white;
+
+    border: 1px solid #333;
+
+    border-radius: 10px;
+
+    padding: 12px 14px;
+
+    font-size: 15px;
+
+    transition: all .25s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+
+    outline: none;
+
+    border-color: #E63946;
+
+    box-shadow: 0 0 0 3px rgba(230,57,70,.15);
+}
+
+/* Placeholder */
+
+::placeholder{
+    color:#666;
+}
+
+/* ===========================
+   Buttons
+=========================== */
+
+.action-buttons {
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:15px;
+
+    margin-top:35px;
+}
+
+.cancel-btn{
+
+    background:transparent;
+
+    border:1px solid #555;
+
+    color:white;
+
+    padding:12px 22px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.cancel-btn:hover{
+
+    background:#333;
+}
+
+.save-btn{
+
+    background:#E63946;
+
+    border:none;
+
+    color:white;
+
+    padding:12px 24px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.save-btn:hover{
+
+    background:#c62839;
+
+    transform:translateY(-2px);
+}
+
+/* ===========================
+   Validation
+=========================== */
+
+.error{
+
+    color:#ff6b6b;
+
+    margin-top:5px;
+
+    font-size:13px;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width:992px){
+
+    .form-grid{
+
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media (max-width:768px){
+
+    .form-page{
+
+        padding:15px;
+    }
+
+    .form-card{
+
+        padding:20px;
+    }
+
+    .form-header h2{
+
+        font-size:22px;
+    }
+
+    .action-buttons{
+
+        flex-direction:column-reverse;
+    }
+
+    .cancel-btn,
+    .save-btn{
+
+        width:100%;
+    }
+
+}

@@ -1,0 +1,143 @@
+.members-container {
+  padding: 24px;
+}
+
+.page-header {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 24px;
+}
+
+.page-header h2 {
+  color: white;
+}
+
+.add-btn {
+
+  background: #E63946;
+
+  color: white;
+
+  border: none;
+
+  padding: 12px 20px;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+}
+
+.filter-section {
+  margin-bottom: 20px;
+}
+
+.filter-section input {
+
+  width: 300px;
+
+  padding: 12px;
+
+  border-radius: 8px;
+
+  border: 1px solid #333;
+
+  background: #1d1d1d;
+
+  color: white;
+}
+
+.table-card {
+
+  background: #1d1d1d;
+
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  border: 1px solid #2d2d2d;
+}
+
+.member-table {
+
+  width: 100%;
+
+  border-collapse: collapse;
+}
+
+.member-table th {
+
+  background: #202020;
+
+  color: #E63946;
+
+  padding: 16px;
+
+  text-align: left;
+}
+
+.member-table td {
+
+  padding: 16px;
+
+  color: white;
+
+  border-top: 1px solid #2d2d2d;
+}
+
+.status {
+
+  padding: 6px 12px;
+
+  border-radius: 20px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+}
+
+.active {
+
+  background: #22c55e20;
+
+  color: #22c55e;
+}
+
+.expired {
+
+  background: #ef444420;
+
+  color: #ef4444;
+}
+
+.action-btn {
+
+  background: transparent;
+
+  border: 1px solid #E63946;
+
+  color: #E63946;
+
+  padding: 8px 14px;
+
+  border-radius: 8px;
+    display: inline-flex;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.action-btn:hover {
+
+  background: #C1121F;
+    color: white;
+  transform: translateY(-2px);
+}
+.table-actions {
+  display: flex;
+  gap: 8px;                 /* Clean spacing between the buttons */
+  justify-content: flex-start;  /* Centers them. Use 'flex-start' if you want them left-aligned */
+  align-items: center;      /* Vertically aligns buttons in case heights differ */
+}

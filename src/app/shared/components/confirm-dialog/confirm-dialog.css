@@ -1,0 +1,29 @@
+:host {
+
+    display:block;
+
+    background:#1d1d1d;
+
+    color:white;
+
+    border-radius:12px;
+}
+
+h2{
+
+    color:#E63946;
+
+    margin-bottom:15px;
+}
+
+p{
+
+    color:#ccc;
+
+    font-size:15px;
+}
+
+mat-dialog-actions{
+
+    margin-top:20px;
+}

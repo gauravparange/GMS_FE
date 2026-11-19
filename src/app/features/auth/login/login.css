@@ -1,0 +1,82 @@
+.login-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* 1. Add your background image properties here */
+  background-image: url('public/gymbg.jpg'); /* Update with your exact image path */
+  background-size: cover;       /* Scales image to fill screen without stretching */
+  background-position: center;   /* Focuses the image on all device screen sizes */
+  background-repeat: no-repeat;  /* Prevents image tiling */
+  position: relative;            /* Required context for the dark mask overlay */
+}
+
+/* 2. Added dark overlay mask so text labels remain perfectly legible */
+.login-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7); /* Darkens your gym image by 70% */
+  z-index: 1;
+}
+
+.login-card {
+  position: relative;            /* Pulls card forward above the dark overlay */
+  z-index: 2;                    /* Keeps form interactive and clickable */
+  width: 400px;
+  background: var(--bg-dark);
+  padding: 30px;
+  border: 2px solid #E63946;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5); /* Optional: Soft glow separation from image */
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: white; /* Ensures title pops nicely */
+}
+
+/* --- Keeping the rest of your original button and form rules identical --- */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  color: #ffffff; /* Make sure form labels stay clear on the background */
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.login-btn {
+  width: 100%;
+  background: #E63946;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+  background: #C1121F;
+  transform: translateY(-2px);
+}
+
+/* Fix cursor pointer for disabled state */
+.login-btn:disabled {
+  background: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+  transform: none;
+}

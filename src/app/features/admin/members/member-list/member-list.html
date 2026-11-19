@@ -1,0 +1,87 @@
+<div class="members-container">
+
+  <div class="page-header">
+
+    <h2>Members</h2>
+
+    <button class="add-btn" routerLink="/admin/members/add">
+      + Add Member
+    </button>
+
+  </div>
+
+  <div class="filter-section">
+
+    <input
+      type="text"
+      placeholder="Search Member">
+ 
+  </div>
+
+  <div class="table-card">
+
+    <table class="member-table">
+
+      <thead>
+
+        <tr>
+
+          <th>Code</th>
+          <th>Name</th>
+          <th>Mobile</th>
+          <th>Plan</th>
+          <th>Expiry</th>
+          <th>Status</th>
+          <th>Action</th>
+
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr *ngFor="let member of members">
+
+          <td>{{ member.memberCode }}</td>
+
+          <td>{{ member.fullName }}</td>
+
+          <td>{{ member.mobileNo }}</td>
+
+          <td>{{ member.planId }}</td>
+
+          <td>{{ member.expiryDate }}</td>
+
+          <td>
+
+            <span
+              class="status"
+              [class.active]="member.status === 'Active'"
+              [class.expired]="member.status === 'Expired'">
+
+              {{ member.status }}
+
+            </span>
+
+          </td>
+
+          <td class="table-actions">
+
+            <button class="action-btn"  [routerLink]="['/admin','members','edit', member.id ]">
+              Edit
+            </button>
+            <button class="action-btn"  (click)="delete(member)">
+                        Delete
+            </button>
+
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>

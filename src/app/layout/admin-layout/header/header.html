@@ -1,0 +1,34 @@
+<header class="header">
+
+  <div class="header-left">
+
+    <button
+      class="menu-btn"
+      (click)="menuToggle.emit()"
+      aria-label="Toggle menu">
+
+      ☰
+
+    </button>
+
+    <h2>{{pageTitle}}</h2>
+
+  </div>
+
+  <div class="header-right">
+
+    <span class="admin-name">
+      Admin
+    </span>
+
+    <button
+      class="logout-btn"
+      (click)="logout()">
+
+      Logout
+
+    </button>
+
+  </div>
+
+</header>
